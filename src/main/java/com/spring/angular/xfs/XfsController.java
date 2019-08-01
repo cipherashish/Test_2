@@ -26,12 +26,13 @@ public class XfsController {
 	@RequestMapping(
 		    value = "/postKSR", 
 		    method = RequestMethod.POST)
-		public void alert(@RequestBody Map<String, Object> payload,
+		public Map<String, Object> alert(@RequestBody Map<String, Object> payload,
 				@ModelAttribute("xfs") @Valid Xfs xfs,BindingResult result, Model model ) 
 		    throws Exception {
 
 		  System.out.println(payload);
 		  xfsRepository.save(xfs);
+		  return payload;
     }
 	
 	  @GetMapping(value = "/hello")
