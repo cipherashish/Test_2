@@ -45,6 +45,7 @@ pipeline{
              }
     
          }
+    }
          post{
    success {
      sh 'curl -H "Content-Type: application/json" -X POST -d \'{"id":"${env.JOB_NAME}","bNumber":"${env.BUILD_NUMBER}","bUrl":"${env.BUILD_URL}","buildStatus":"SUCCESS"}\'  http://ec2-13-232-255-41.ap-south-1.compute.amazonaws.com:8080/process'
@@ -54,7 +55,7 @@ pipeline{
     
          }
 }
-}
+
 }
        
     
