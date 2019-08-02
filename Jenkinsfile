@@ -48,10 +48,10 @@ pipeline{
     }
          post{
    success {
-     sh 'curl -H "Content-Type: application/json" -X POST -d \'{"id":"${env.JOB_NAME}","bNumber":"${env.BUILD_NUMBER}","bUrl":"${env.BUILD_URL}","buildStatus":"SUCCESS"}\'  http://ec2-13-232-255-41.ap-south-1.compute.amazonaws.com:8080/Backend_XFS/postKSR'
+     sh 'curl -H "Content-Type: application/json" -X POST -d \'{"id":"${JOB_NAME}","bNumber":"${BUILD_NUMBER}","bUrl":"${BUILD_URL}","buildStatus":"SUCCESS"}\'  http://ec2-13-232-255-41.ap-south-1.compute.amazonaws.com:8080/Backend_XFS/postKSR'
    }
          failure {
-      sh 'curl -H "Content-Type: application/json" -X POST -d \'{"id":"${env.JOB_NAME}","bNumber":"${env.BUILD_NUMBER}","bUrl":"${env.BUILD_URL}","buildStatus":"FAILURE"}\'  http://ec2-13-232-255-41.ap-south-1.compute.amazonaws.com:8080/Backend_XFS/postKSR'
+      sh 'curl -H "Content-Type: application/json" -X POST -d \'{"id":"${JOB_NAME}","bNumber":"${BUILD_NUMBER}","bUrl":"${BUILD_URL}","buildStatus":"FAILURE"}\'  http://ec2-13-232-255-41.ap-south-1.compute.amazonaws.com:8080/Backend_XFS/postKSR'
     
          }
 }
